@@ -162,8 +162,7 @@ const Home = () => {
         <section id="greening" className="py-16 bg-green-50">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl font-bold text-center mb-2">
-              ПРОФЕССИОНАЛЬНОЕ{" "}
-              <span className="text-green-600">ОЗЕЛЕНЕНИЕ</span>
+              ПРОФЕССИОНАЛЬНОЕ <span className="text-green-600">ОЗЕЛЕНЕНИЕ</span>
             </h2>
             <div className="w-20 h-1 bg-green-600 mx-auto mb-12"></div>
 
@@ -215,14 +214,6 @@ const Home = () => {
                       className="text-green-600 mt-1"
                       size={16}
                     />
-                    <span>Система автоматического полива</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Icon
-                      name="Check"
-                      className="text-green-600 mt-1"
-                      size={16}
-                    />
                     <span>Сезонное обслуживание растений</span>
                   </li>
                 </ul>
@@ -247,13 +238,6 @@ const Home = () => {
                   icon="Sprout"
                   title="УСТРОЙСТВО И УХОД ЗА ГАЗОНАМИ"
                   description="Создание и обслуживание газонов различных типов: партерных, спортивных, мавританских и универсальных."
-                  className="animate-on-scroll"
-                />
-
-                <GreenServiceCard
-                  icon="Droplets"
-                  title="СИСТЕМЫ АВТОМАТИЧЕСКОГО ПОЛИВА"
-                  description="Проектирование, монтаж и обслуживание систем автоматического полива для эффективного ухода за зелеными насаждениями."
                   className="animate-on-scroll"
                 />
               </div>
@@ -767,12 +751,9 @@ const Home = () => {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>
-              © {new Date().getFullYear()} Гарант Партнер. Все права защищены.
-            </p>
+            <p>© {new Date().getFullYear()} Гарант Партнер. Все права защищены.</p>
           </div>
-        </div>
-      </footer>
+        </footer>
     </div>
   );
 };
