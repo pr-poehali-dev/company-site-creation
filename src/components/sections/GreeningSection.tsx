@@ -1,4 +1,3 @@
-
 import React from "react";
 import Icon from "@/components/ui/icon";
 import { Button } from "@/components/ui/button";
@@ -17,7 +16,7 @@ const GreeningSection = () => {
           <div className="flex-1 animate-on-scroll">
             <div className="rounded-lg overflow-hidden mb-6">
               <img
-                src="https://images.unsplash.com/photo-1567564967039-a5a98305211c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1600240644455-fd6dc1220a98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="Городское озеленение территории"
                 className="w-full h-[300px] object-cover"
               />
@@ -27,40 +26,24 @@ const GreeningSection = () => {
               озеленению и благоустройству территорий вокруг бизнес-центров,
               офисных зданий, торговых комплексов и других объектов
               недвижимости. Наши специалисты разрабатывают индивидуальные
-              проекты озеленения с учетом особенностей территории и
-              пожеланий заказчика.
+              проекты озеленения с учетом особенностей территории и пожеланий
+              заказчика.
             </p>
             <ul className="space-y-2 mb-6">
               <li className="flex items-start gap-2">
-                <Icon
-                  name="Check"
-                  className="text-green-600 mt-1"
-                  size={16}
-                />
+                <Icon name="Check" className="text-green-600 mt-1" size={16} />
                 <span>Проектирование ландшафта и озеленения</span>
               </li>
               <li className="flex items-start gap-2">
-                <Icon
-                  name="Check"
-                  className="text-green-600 mt-1"
-                  size={16}
-                />
+                <Icon name="Check" className="text-green-600 mt-1" size={16} />
                 <span>Подбор и посадка растений</span>
               </li>
               <li className="flex items-start gap-2">
-                <Icon
-                  name="Check"
-                  className="text-green-600 mt-1"
-                  size={16}
-                />
+                <Icon name="Check" className="text-green-600 mt-1" size={16} />
                 <span>Создание и обслуживание газонов</span>
               </li>
               <li className="flex items-start gap-2">
-                <Icon
-                  name="Check"
-                  className="text-green-600 mt-1"
-                  size={16}
-                />
+                <Icon name="Check" className="text-green-600 mt-1" size={16} />
                 <span>Сезонное обслуживание растений</span>
               </li>
             </ul>
