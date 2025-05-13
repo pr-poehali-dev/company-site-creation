@@ -167,7 +167,7 @@ const Home = () => {
               <div className="flex-1 animate-on-scroll">
                 <div className="rounded-lg overflow-hidden mb-6">
                   <img
-                    src="https://images.unsplash.com/photo-1558441440-d4111d18d48f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    src="https://images.unsplash.com/photo-1567564967039-a5a98305211c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Городское озеленение территории"
                     className="w-full h-[300px] object-cover"
                   />
