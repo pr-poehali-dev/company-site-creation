@@ -40,7 +40,6 @@ const Home = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Навигация */}
       <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-2">
@@ -107,7 +106,6 @@ const Home = () => {
       </header>
 
       <main className="flex-1">
-        {/* Hero секция */}
         <section
           className="relative bg-cover bg-center py-24 text-white"
           style={{
@@ -142,7 +140,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Статистика */}
         <section className="py-8 bg-primary text-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
@@ -158,7 +155,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Озеленение - НОВЫЙ РАЗДЕЛ */}
         <section id="greening" className="py-16 bg-green-50">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl font-bold text-center mb-2">
@@ -171,7 +167,7 @@ const Home = () => {
               <div className="flex-1 animate-on-scroll">
                 <div className="rounded-lg overflow-hidden mb-6">
                   <img
-                    src="https://images.unsplash.com/photo-1620127252536-03bdfcf6d5c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    src="https://images.unsplash.com/photo-1502085026238-554346558823?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                     alt="Озеленение территории"
                     className="w-full h-[300px] object-cover"
                   />
@@ -252,7 +248,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* О компании */}
         <section id="about" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row gap-12">
@@ -376,7 +371,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Услуги */}
         <section id="services" className="py-16">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl font-bold text-center mb-2">
@@ -423,7 +417,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* CTA-секция */}
         <section
           className="py-16 bg-primary text-white"
           style={{
@@ -448,7 +441,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Клиенты */}
         <section id="clients" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl font-bold mb-2">
@@ -516,7 +508,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Контактная форма */}
         <section id="contacts" className="py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -641,7 +632,6 @@ const Home = () => {
         </section>
       </main>
 
-      {/* Футер */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
