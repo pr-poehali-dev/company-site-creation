@@ -19,67 +19,37 @@ const Home = () => {
       <Header />
 
       <main className="flex-1">
-        {/* Hero секция с градиентом и волнистым разделителем */}
-        <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 py-28 text-white overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  "url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
-              }}
-            />
-          </div>
-          <div className="container mx-auto px-4 md:px-6 relative z-10">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="md:w-1/2 animate-on-scroll">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                  КОМПЛЕКСНОЕ
-                  <br />
-                  <span className="text-blue-300">ОБСЛУЖИВАНИЕ</span>
-                  <br />
-                  ЗДАНИЙ
-                </h1>
-                <p className="text-xl text-blue-100 mb-8 max-w-lg">
-                  Профессиональные услуги по эксплуатации и обслуживанию
-                  недвижимости любого типа
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
-                    className="bg-white text-blue-900 hover:bg-blue-50 px-8"
-                  >
-                    Заказать услугу
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="text-white border-white hover:bg-white/20"
-                  >
-                    Узнать больше
-                  </Button>
-                </div>
-              </div>
-              <div className="md:w-1/2 animate-on-scroll">
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-blue-500/30 rounded-xl rotate-3" />
-                  <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Современное здание"
-                    className="rounded-lg shadow-2xl relative z-10 object-cover w-full max-w-md mx-auto h-[400px]"
-                  />
-                </div>
+        <section
+          className="relative bg-cover bg-center py-24 text-white"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0, 53, 102, 0.7), rgba(0, 53, 102, 0.7)), url('https://cdn.poehali.dev/files/592c3f8f-0df1-4fa3-b659-765244cc04f3.jpg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-3xl space-y-4 animate-on-scroll">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-4">
+                КОМПЛЕКСНОЕ ОБСЛУЖИВАНИЕ ЗДАНИЙ
+              </h1>
+              <p className="text-xl text-gray-200 mb-8">
+                Профессиональные услуги по эксплуатации и обслуживанию
+                недвижимости любого типа
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-primary hover:bg-primary-600">
+                  Заказать услугу
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-white border-white hover:bg-white/20"
+                >
+                  Узнать больше
+                </Button>
               </div>
             </div>
-          </div>
-          <div className="absolute bottom-0 left-0 right-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1440 100"
-              className="fill-white"
-            >
-              <path d="M0,0 C240,95 480,95 720,55 C960,15 1200,35 1440,70 L1440,100 L0,100 Z" />
-            </svg>
           </div>
         </section>
 
@@ -507,19 +477,19 @@ const Home = () => {
                     <div className="flex gap-4">
                       <a
                         href="#"
-                        className="bg-blue-900/50 p-3 rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
+                        className="bg-blue-900/50 p-3-rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
                       >
                         <Icon name="Facebook" size={20} />
                       </a>
                       <a
                         href="#"
-                        className="bg-blue-900/50 p-3 rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
+                        className="bg-blue-900/50 p-3-rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
                       >
                         <Icon name="Instagram" size={20} />
                       </a>
                       <a
                         href="#"
-                        className="bg-blue-900/50 p-3 rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
+                        className="bg-blue-900/50 p-3-rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
                       >
                         <Icon name="Twitter" size={20} />
                       </a>
@@ -529,7 +499,7 @@ const Home = () => {
               </div>
 
               <div className="animate-on-scroll space-y-6">
-                <div className="bg-gray-800 p-8 rounded-xl shadow-xl">
+                <div className="bg-gray-800 p-8-rounded-xl shadow-xl">
                   <h3 className="text-xl font-semibold mb-6 text-blue-300">
                     Отправить сообщение
                   </h3>
@@ -546,7 +516,7 @@ const Home = () => {
                         <input
                           type="text"
                           id="name"
-                          className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
+                          className="w-full p-3-rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
                         />
                       </div>
                       <div>
@@ -559,7 +529,7 @@ const Home = () => {
                         <input
                           type="tel"
                           id="phone"
-                          className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
+                          className="w-full p-3-rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
                         />
                       </div>
                     </div>
@@ -574,7 +544,7 @@ const Home = () => {
                       <input
                         type="email"
                         id="email"
-                        className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
+                        className="w-full p-3-rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
                       />
                     </div>
 
@@ -588,7 +558,7 @@ const Home = () => {
                       <textarea
                         id="message"
                         rows={5}
-                        className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
+                        className="w-full p-3-rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
                       ></textarea>
                     </div>
 
