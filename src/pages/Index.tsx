@@ -94,17 +94,6 @@ const Home = () => {
         <section id="about" className="py-20 bg-white relative overflow-hidden">
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="grid grid-cols-1 gap-12">
-              {/* Заголовок и большое изображение */}
-              <div className="relative w-full">
-                <div className="rounded-lg overflow-hidden">
-                  <img
-                    src="https://cdn.poehali.dev/files/3a39ce4c-959f-47f4-b379-1b07ce645f28.jpg"
-                    alt="Техническое обслуживание инженерных систем"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </div>
-
               {/* Основная информация */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Левая колонка */}
@@ -115,7 +104,7 @@ const Home = () => {
                   <p className="text-gray-700 mb-6">
                     УК «Гарант-Партнер» - это команда профессионалов, мы
                     специализируемся на комплексном обслуживании зданий и
-                    территорий:
+                    территориях:
                   </p>
 
                   <ul className="space-y-2 mb-8 text-gray-700">
