@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { cn } from '@/lib/utils';
+import React from "react";
+import { cn } from "@/lib/utils";
 
 interface ClientCategoryProps {
   title: string;
@@ -8,24 +7,32 @@ interface ClientCategoryProps {
   className?: string;
 }
 
-const ClientCategory: React.FC<ClientCategoryProps> = ({ title, imageUrl, className }) => {
+const ClientCategory: React.FC<ClientCategoryProps> = ({
+  title,
+  imageUrl,
+  className,
+}) => {
   return (
-    <div 
+    <div
       className={cn(
-        "h-40 rounded-lg overflow-hidden shadow-md bg-primary/80 flex items-center justify-center transition-transform duration-300 hover:scale-105",
-        className
+        "h-40 rounded-xl overflow-hidden shadow-md bg-blue-700/80 flex items-center justify-center transition-all duration-300 hover:shadow-lg group",
+        className,
       )}
       style={
-        imageUrl 
+        imageUrl
           ? {
-              backgroundImage: `linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url(${imageUrl})`,
+              backgroundImage: `linear-gradient(rgba(30, 64, 175, 0.75), rgba(30, 64, 175, 0.75)), url(${imageUrl})`,
               backgroundPosition: "center",
-              backgroundSize: "cover"
+              backgroundSize: "cover",
             }
           : {}
       }
     >
-      <h3 className="font-bold text-xl text-white text-center p-4">{title}</h3>
+      <div className="w-full h-full flex items-center justify-center p-6 transition-transform duration-500 group-hover:scale-105">
+        <h3 className="font-bold text-xl text-white text-center group-hover:text-blue-100 transition-colors">
+          {title}
+        </h3>
+      </div>
     </div>
   );
 };

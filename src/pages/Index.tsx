@@ -1,9 +1,6 @@
 import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import HeroSection from "@/components/sections/HeroSection";
-import StatsSection from "@/components/sections/StatsSection";
-import GreeningSection from "@/components/sections/GreeningSection";
 import useScrollAnimation from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ServiceCard";
@@ -22,21 +19,128 @@ const Home = () => {
       <Header />
 
       <main className="flex-1">
-        <HeroSection />
-        <StatsSection />
+        {/* Hero секция с градиентом и волнистым разделителем */}
+        <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 py-28 text-white overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+              }}
+            />
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="md:w-1/2 animate-on-scroll">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                  КОМПЛЕКСНОЕ
+                  <br />
+                  <span className="text-blue-300">ОБСЛУЖИВАНИЕ</span>
+                  <br />
+                  ЗДАНИЙ
+                </h1>
+                <p className="text-xl text-blue-100 mb-8 max-w-lg">
+                  Профессиональные услуги по эксплуатации и обслуживанию
+                  недвижимости любого типа
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    size="lg"
+                    className="bg-white text-blue-900 hover:bg-blue-50 px-8"
+                  >
+                    Заказать услугу
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="text-white border-white hover:bg-white/20"
+                  >
+                    Узнать больше
+                  </Button>
+                </div>
+              </div>
+              <div className="md:w-1/2 animate-on-scroll">
+                <div className="relative">
+                  <div className="absolute -inset-4 bg-blue-500/30 rounded-xl rotate-3" />
+                  <img
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Современное здание"
+                    className="rounded-lg shadow-2xl relative z-10 object-cover w-full max-w-md mx-auto h-[400px]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 100"
+              className="fill-white"
+            >
+              <path d="M0,0 C240,95 480,95 720,55 C960,15 1200,35 1440,70 L1440,100 L0,100 Z" />
+            </svg>
+          </div>
+        </section>
 
-        {/* Раздел О нас */}
-        <section id="about" className="py-16 bg-white">
+        {/* Блок с ключевыми преимуществами */}
+        <section className="py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-2">
-              О <span className="text-primary">КОМПАНИИ</span>
-            </h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-12"></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-6 rounded-lg shadow-sm border border-gray-100 animate-on-scroll">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Clock" className="text-blue-700 w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">15+ лет опыта</h3>
+                <p className="text-gray-600">
+                  Надежный партнер с многолетней историей успешных проектов
+                </p>
+              </div>
+              <div className="text-center p-6 rounded-lg shadow-sm border border-gray-100 animate-on-scroll">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Users" className="text-blue-700 w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">
+                  100+ специалистов
+                </h3>
+                <p className="text-gray-600">
+                  Команда профессионалов для решения любых задач обслуживания
+                </p>
+              </div>
+              <div className="text-center p-6 rounded-lg shadow-sm border border-gray-100 animate-on-scroll">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="CheckCircle" className="text-blue-700 w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">10000+ услуг</h3>
+                <p className="text-gray-600">
+                  Доверьте нам заботу о вашей недвижимости
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Раздел О нас с анимированным фоном */}
+        <section
+          id="about"
+          className="py-20 bg-gray-50 relative overflow-hidden"
+        >
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-2 inline-block">
+                О <span className="text-blue-700">КОМПАНИИ</span>
+              </h2>
+              <div className="h-1 w-20 bg-blue-700 mx-auto mt-2" />
+              <p className="text-gray-600 max-w-3xl mx-auto mt-4">
+                Комплексный подход к обслуживанию зданий и территорий с
+                гарантией качества
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="animate-on-scroll">
-                <h3 className="text-xl font-semibold text-primary mb-4">
-                  15 ЛЕТ НА РЫНКЕ FACILITY MANAGEMENT
+                <h3 className="text-xl font-semibold text-blue-700 mb-4">
+                  ЛИДЕР РЫНКА FACILITY MANAGEMENT
                 </h3>
                 <p className="text-gray-700 mb-4">
                   Компания «Гарант Партнер» успешно работает на рынке
@@ -44,256 +148,500 @@ const Home = () => {
                   предоставляем полный спектр услуг по управлению и эксплуатации
                   зданий и сооружений коммерческой и жилой недвижимости.
                 </p>
-                <p className="text-gray-700 mb-6">
-                  Наша команда состоит из квалифицированных специалистов с
-                  многолетним опытом работы. Мы используем современное
-                  оборудование и технологии, что позволяет нам предоставлять
-                  услуги высокого качества по оптимальным ценам.
-                </p>
-                <Button className="animate-on-scroll">Узнать больше</Button>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <Icon
+                      name="Check"
+                      className="text-green-600 mt-1"
+                      size={18}
+                    />
+                    <span className="text-gray-700">
+                      Современные технологии и оборудование
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Icon
+                      name="Check"
+                      className="text-green-600 mt-1"
+                      size={18}
+                    />
+                    <span className="text-gray-700">
+                      Опытные и квалифицированные специалисты
+                    </span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Icon
+                      name="Check"
+                      className="text-green-600 mt-1"
+                      size={18}
+                    />
+                    <span className="text-gray-700">
+                      Индивидуальный подход к каждому проекту
+                    </span>
+                  </div>
+                </div>
+                <Button className="animate-on-scroll bg-blue-700 hover:bg-blue-800">
+                  Узнать больше
+                </Button>
               </div>
-              <div className="rounded-lg overflow-hidden shadow-lg animate-on-scroll">
+              <div className="relative animate-on-scroll">
+                <div className="absolute -inset-4 bg-blue-200/50 rounded-3xl -rotate-3" />
+                <div className="absolute -inset-4 bg-blue-700/20 rounded-3xl rotate-3 translate-x-4" />
                 <img
                   src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Офис компании Гарант Партнер"
-                  className="w-full h-[400px] object-cover"
+                  className="w-full h-[400px] object-cover rounded-xl shadow-xl relative z-10"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Раздел Услуги */}
-        <section id="services" className="py-16 bg-gray-50">
+        {/* Раздел Услуги с градиентом */}
+        <section
+          id="services"
+          className="py-20 bg-gradient-to-b from-white to-blue-50"
+        >
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-2">
-              НАШИ <span className="text-primary">УСЛУГИ</span>
-            </h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-12"></div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-2 inline-block">
+                НАШИ <span className="text-blue-700">УСЛУГИ</span>
+              </h2>
+              <div className="h-1 w-20 bg-blue-700 mx-auto mt-2" />
+              <p className="text-gray-600 max-w-3xl mx-auto mt-4">
+                Полный комплекс решений для эффективного управления и
+                обслуживания объектов недвижимости
+              </p>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <ServiceCard
                 icon="Building2"
                 title="Техническое обслуживание зданий"
                 description="Комплексное обслуживание инженерных систем, планово-предупредительные работы, оперативное устранение аварий."
-                className="animate-on-scroll"
+                className="animate-on-scroll hover:-translate-y-2 transition-transform duration-300"
               />
               <ServiceCard
                 icon="Sparkles"
                 title="Профессиональный клининг"
                 description="Ежедневная и генеральная уборка помещений, мойка окон и фасадов, уборка территории, вывоз мусора."
-                className="animate-on-scroll"
+                className="animate-on-scroll hover:-translate-y-2 transition-transform duration-300"
               />
               <ServiceCard
                 icon="ShieldCheck"
                 title="Обеспечение безопасности"
                 description="Организация контрольно-пропускного режима, круглосуточная охрана объектов, установка и обслуживание систем безопасности."
-                className="animate-on-scroll"
+                className="animate-on-scroll hover:-translate-y-2 transition-transform duration-300"
               />
               <ServiceCard
                 icon="Wrench"
                 title="Ремонтные работы"
                 description="Капитальный и текущий ремонт помещений, отделочные работы, ремонт коммуникаций и инженерных систем."
-                className="animate-on-scroll"
+                className="animate-on-scroll hover:-translate-y-2 transition-transform duration-300"
               />
               <ServiceCard
                 icon="Snow"
                 title="Снегоуборка и реагенты"
                 description="Механизированная и ручная уборка снега, обработка противогололедными материалами, вывоз снега."
-                className="animate-on-scroll"
+                className="animate-on-scroll hover:-translate-y-2 transition-transform duration-300"
               />
               <ServiceCard
                 icon="LineChart"
                 title="Управление эксплуатацией"
                 description="Разработка планов обслуживания и бюджетов, контроль качества работ, оптимизация эксплуатационных расходов."
-                className="animate-on-scroll"
+                className="animate-on-scroll hover:-translate-y-2 transition-transform duration-300"
               />
             </div>
           </div>
         </section>
 
-        <GreeningSection />
+        {/* Раздел Озеленение */}
+        <section
+          id="greening"
+          className="py-20 bg-green-50 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill="#009432"
+                d="M45.7,-75.2C58.9,-69.2,69.2,-55.7,76.1,-41C83,-26.4,86.5,-10.7,82.6,3.4C78.7,17.4,67.4,29.9,57.3,42.5C47.1,55.1,38.1,67.9,25.9,73.2C13.7,78.5,-1.8,76.3,-16.9,72.4C-32,68.4,-46.8,62.6,-57.2,52.5C-67.6,42.3,-73.6,27.7,-77.7,11.9C-81.8,-3.8,-84,-20.8,-78.2,-34.5C-72.3,-48.2,-58.3,-58.8,-43.9,-64.4C-29.4,-70,-14.7,-70.7,1.1,-72.5C16.9,-74.3,33.9,-77.3,45.7,-75.2Z"
+                transform="translate(100 100)"
+              />
+            </svg>
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-2 inline-block">
+                ПРОФЕССИОНАЛЬНОЕ{" "}
+                <span className="text-green-600">ОЗЕЛЕНЕНИЕ</span>
+              </h2>
+              <div className="h-1 w-20 bg-green-600 mx-auto mt-2" />
+              <p className="text-gray-600 max-w-3xl mx-auto mt-4">
+                Создание и поддержание зеленых зон для улучшения экологии и
+                эстетики вашего объекта
+              </p>
+            </div>
 
-        {/* Раздел Клиенты */}
-        <section id="clients" className="py-16 bg-white">
+            <div className="flex flex-col lg:flex-row gap-12">
+              <div className="flex-1 animate-on-scroll">
+                <div className="rounded-xl overflow-hidden mb-6 shadow-xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=800&q=80"
+                    alt="Городское озеленение территории"
+                    className="w-full h-[350px] object-cover transform transition-transform hover:scale-105 duration-700"
+                  />
+                </div>
+                <p className="text-gray-700 mb-6">
+                  Компания «Гарант-Партнер» предлагает комплексные услуги по
+                  озеленению и благоустройству территорий вокруг бизнес-центров,
+                  офисных зданий, торговых комплексов и других объектов
+                  недвижимости. Наши специалисты разрабатывают индивидуальные
+                  проекты озеленения с учетом особенностей территории и
+                  пожеланий заказчика.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-start gap-2">
+                    <Icon
+                      name="Check"
+                      className="text-green-600 mt-1"
+                      size={16}
+                    />
+                    <span>Проектирование ландшафта и озеленения</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Icon
+                      name="Check"
+                      className="text-green-600 mt-1"
+                      size={16}
+                    />
+                    <span>Подбор и посадка растений</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Icon
+                      name="Check"
+                      className="text-green-600 mt-1"
+                      size={16}
+                    />
+                    <span>Создание и обслуживание газонов</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Icon
+                      name="Check"
+                      className="text-green-600 mt-1"
+                      size={16}
+                    />
+                    <span>Сезонное обслуживание растений</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex-1 flex flex-col gap-6 animate-on-scroll">
+                <div className="rounded-xl bg-white shadow-lg p-6 hover:shadow-xl transition-shadow">
+                  <div className="flex gap-5">
+                    <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
+                      <Icon name="Flower2" className="text-green-600 h-8 w-8" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-green-700 text-lg mb-2">
+                        ЛАНДШАФТНЫЙ ДИЗАЙН
+                      </h3>
+                      <p className="text-gray-700">
+                        Разработка проекта озеленения территории с учетом
+                        особенностей местности, климата и функциональных
+                        требований.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-xl bg-white shadow-lg p-6 hover:shadow-xl transition-shadow">
+                  <div className="flex gap-5">
+                    <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
+                      <Icon name="Trees" className="text-green-600 h-8 w-8" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-green-700 text-lg mb-2">
+                        ПОСАДКА И УХОД ЗА РАСТЕНИЯМИ
+                      </h3>
+                      <p className="text-gray-700">
+                        Подбор, посадка и обслуживание зеленых насаждений:
+                        деревьев, кустарников, многолетних и однолетних
+                        растений.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-xl bg-white shadow-lg p-6 hover:shadow-xl transition-shadow">
+                  <div className="flex gap-5">
+                    <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
+                      <Icon name="Sprout" className="text-green-600 h-8 w-8" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-green-700 text-lg mb-2">
+                        УСТРОЙСТВО И УХОД ЗА ГАЗОНАМИ
+                      </h3>
+                      <p className="text-gray-700">
+                        Создание и обслуживание газонов различных типов:
+                        партерных, спортивных, мавританских и универсальных.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <Button className="bg-green-600 hover:bg-green-700 text-white w-full py-3 mt-2">
+                  Заказать услуги озеленения
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Раздел Клиенты с изображениями */}
+        <section id="clients" className="py-20 bg-white">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-2">
-              НАШИ <span className="text-primary">КЛИЕНТЫ</span>
-            </h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
-
-            <p className="text-center text-gray-700 max-w-3xl mx-auto mb-12">
-              Мы работаем с клиентами из разных сфер бизнеса, предлагая
-              индивидуальные решения для каждого объекта и задачи.
-            </p>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-2 inline-block">
+                НАШИ <span className="text-blue-700">КЛИЕНТЫ</span>
+              </h2>
+              <div className="h-1 w-20 bg-blue-700 mx-auto mt-2" />
+              <p className="text-gray-600 max-w-3xl mx-auto mt-4">
+                Мы работаем с клиентами из разных сфер бизнеса, предлагая
+                индивидуальные решения для каждого объекта и задачи
+              </p>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <ClientCategory
                 title="Бизнес-центры и офисные здания"
                 imageUrl="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                className="animate-on-scroll"
+                className="animate-on-scroll rounded-xl h-48"
               />
               <ClientCategory
                 title="Торговые центры и магазины"
                 imageUrl="https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                className="animate-on-scroll"
+                className="animate-on-scroll rounded-xl h-48"
               />
               <ClientCategory
                 title="Производственные предприятия"
                 imageUrl="https://images.unsplash.com/photo-1590502593713-1e2d237e9608?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                className="animate-on-scroll"
+                className="animate-on-scroll rounded-xl h-48"
               />
               <ClientCategory
                 title="Медицинские учреждения"
                 imageUrl="https://images.unsplash.com/photo-1504439468489-c8920d796a29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                className="animate-on-scroll"
+                className="animate-on-scroll rounded-xl h-48"
               />
               <ClientCategory
                 title="Жилые комплексы"
                 imageUrl="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                className="animate-on-scroll"
+                className="animate-on-scroll rounded-xl h-48"
               />
               <ClientCategory
                 title="Государственные учреждения"
                 imageUrl="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                className="animate-on-scroll"
+                className="animate-on-scroll rounded-xl h-48"
               />
             </div>
           </div>
         </section>
 
-        {/* Раздел Контакты */}
-        <section id="contacts" className="py-16 bg-gray-900 text-white">
+        {/* Раздел Контакты с картой */}
+        <section
+          id="contacts"
+          className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 text-white"
+        >
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-3xl font-bold text-center mb-2">
-              СВЯЖИТЕСЬ <span className="text-blue-400">С НАМИ</span>
-            </h2>
-            <div className="w-20 h-1 bg-blue-400 mx-auto mb-12"></div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-2 inline-block">
+                СВЯЖИТЕСЬ <span className="text-blue-400">С НАМИ</span>
+              </h2>
+              <div className="h-1 w-20 bg-blue-400 mx-auto mt-2" />
+              <p className="text-gray-300 max-w-3xl mx-auto mt-4">
+                Мы всегда готовы ответить на ваши вопросы и предложить
+                оптимальное решение для вашего бизнеса
+              </p>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="animate-on-scroll">
-                <h3 className="text-xl font-semibold mb-6">
-                  Контактная информация
-                </h3>
+                <div className="bg-gray-800 p-8 rounded-xl shadow-xl">
+                  <h3 className="text-xl font-semibold mb-6 text-blue-300">
+                    Контактная информация
+                  </h3>
 
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Icon name="MapPin" className="text-blue-400 mt-1" />
-                    <div>
-                      <p className="font-medium">Адрес:</p>
-                      <p>г. Москва, ул. Примерная, д. 123, офис 456</p>
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-blue-900/50 p-3 rounded-lg">
+                        <Icon name="MapPin" className="text-blue-400" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-blue-200 mb-1">Адрес:</p>
+                        <p>г. Москва, ул. Примерная, д. 123, офис 456</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="bg-blue-900/50 p-3 rounded-lg">
+                        <Icon name="Phone" className="text-blue-400" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-blue-200 mb-1">
+                          Телефон:
+                        </p>
+                        <p>+7 (495) 123-45-67</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="bg-blue-900/50 p-3 rounded-lg">
+                        <Icon name="Mail" className="text-blue-400" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-blue-200 mb-1">Email:</p>
+                        <p>info@garantpartner.ru</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <div className="bg-blue-900/50 p-3 rounded-lg">
+                        <Icon name="Clock" className="text-blue-400" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-blue-200 mb-1">
+                          Режим работы:
+                        </p>
+                        <p>Пн-Пт: 9:00 - 18:00</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <Icon name="Phone" className="text-blue-400 mt-1" />
-                    <div>
-                      <p className="font-medium">Телефон:</p>
-                      <p>+7 (495) 123-45-67</p>
+                  <div className="mt-8 pt-6 border-t border-gray-700">
+                    <h4 className="font-medium mb-3 text-blue-200">
+                      Мы в социальных сетях:
+                    </h4>
+                    <div className="flex gap-4">
+                      <a
+                        href="#"
+                        className="bg-blue-900/50 p-3 rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
+                      >
+                        <Icon name="Facebook" size={20} />
+                      </a>
+                      <a
+                        href="#"
+                        className="bg-blue-900/50 p-3 rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
+                      >
+                        <Icon name="Instagram" size={20} />
+                      </a>
+                      <a
+                        href="#"
+                        className="bg-blue-900/50 p-3 rounded-lg text-blue-400 hover:bg-blue-900 transition-colors"
+                      >
+                        <Icon name="Twitter" size={20} />
+                      </a>
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Icon name="Mail" className="text-blue-400 mt-1" />
-                    <div>
-                      <p className="font-medium">Email:</p>
-                      <p>info@garantpartner.ru</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Icon name="Clock" className="text-blue-400 mt-1" />
-                    <div>
-                      <p className="font-medium">Режим работы:</p>
-                      <p>Пн-Пт: 9:00 - 18:00</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <h4 className="font-medium mb-3">Мы в социальных сетях:</h4>
-                  <div className="flex gap-4">
-                    <a href="#" className="text-blue-400 hover:text-blue-300">
-                      <Icon name="Facebook" size={24} />
-                    </a>
-                    <a href="#" className="text-blue-400 hover:text-blue-300">
-                      <Icon name="Instagram" size={24} />
-                    </a>
-                    <a href="#" className="text-blue-400 hover:text-blue-300">
-                      <Icon name="Twitter" size={24} />
-                    </a>
                   </div>
                 </div>
               </div>
 
               <div className="animate-on-scroll space-y-6">
-                <h3 className="text-xl font-semibold mb-6">
-                  Отправить сообщение
-                </h3>
-
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium mb-1"
-                      >
-                        Ваше имя
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        className="w-full p-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium mb-1"
-                      >
-                        Телефон
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        className="w-full p-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium mb-1"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full p-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium mb-1"
-                    >
-                      Сообщение
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      className="w-full p-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    ></textarea>
-                  </div>
-
-                  <Button className="w-full bg-blue-500 hover:bg-blue-600">
+                <div className="bg-gray-800 p-8 rounded-xl shadow-xl">
+                  <h3 className="text-xl font-semibold mb-6 text-blue-300">
                     Отправить сообщение
-                  </Button>
+                  </h3>
+
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label
+                          htmlFor="name"
+                          className="block text-sm font-medium mb-1 text-blue-200"
+                        >
+                          Ваше имя
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="phone"
+                          className="block text-sm font-medium mb-1 text-blue-200"
+                        >
+                          Телефон
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium mb-1 text-blue-200"
+                      >
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium mb-1 text-blue-200"
+                      >
+                        Сообщение
+                      </label>
+                      <textarea
+                        id="message"
+                        rows={5}
+                        className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-white"
+                      ></textarea>
+                    </div>
+
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 py-3">
+                      Отправить сообщение
+                    </Button>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to action */}
+        <section className="py-16 bg-blue-700 text-white">
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-3xl font-bold mb-4">
+              Готовы начать сотрудничество?
+            </h2>
+            <p className="text-blue-100 max-w-2xl mx-auto mb-8">
+              Свяжитесь с нами сегодня, чтобы обсудить ваши потребности и
+              получить индивидуальное предложение
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-white text-blue-900 hover:bg-blue-50 px-8"
+              >
+                Заказать звонок
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-white border-white hover:bg-white/20"
+              >
+                Рассчитать стоимость
+              </Button>
             </div>
           </div>
         </section>
