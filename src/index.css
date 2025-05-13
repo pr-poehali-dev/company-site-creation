@@ -76,6 +76,15 @@
   .client-category:hover::before {
     @apply opacity-0;
   }
+
+  /* Стили для раздела озеленения */
+  .green-card {
+    @apply relative overflow-hidden transition-all duration-300 bg-white rounded-md shadow-md hover:shadow-lg border-green-200;
+  }
+
+  .green-card:hover {
+    @apply -translate-y-1 border-green-300;
+  }
 }
 
 /* Анимации для элементов */
