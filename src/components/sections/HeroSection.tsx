@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 
@@ -16,11 +15,11 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl space-y-4 animate-on-scroll">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-4">
-            КОМПЛЕКСНОЕ ОБСЛУЖИВАНИЕ ЗДАНИЙ
+            ОБСЛУЖИВАНИЕ ЗДАНИЙ
           </h1>
           <p className="text-xl text-gray-200 mb-8">
-            Профессиональные услуги по эксплуатации и обслуживанию
-            недвижимости любого типа
+            Профессиональные услуги по эксплуатации и обслуживанию недвижимости
+            любого типа
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary-600">
