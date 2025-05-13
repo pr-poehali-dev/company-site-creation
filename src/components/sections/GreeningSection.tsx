@@ -16,7 +16,7 @@ const GreeningSection = () => {
           <div className="flex-1 animate-on-scroll">
             <div className="rounded-lg overflow-hidden mb-6">
               <img
-                src="https://images.unsplash.com/photo-1600240644455-fd6dc1220a98?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                 alt="Городское озеленение территории"
                 className="w-full h-[300px] object-cover"
               />
