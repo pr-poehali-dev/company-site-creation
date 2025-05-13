@@ -90,78 +90,133 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Раздел О нас с анимированным фоном */}
-        <section
-          id="about"
-          className="py-20 bg-gray-50 relative overflow-hidden"
-        >
+        {/* Раздел О нас с фоновым изображением и контентом по макету */}
+        <section id="about" className="py-20 bg-white relative overflow-hidden">
           <div className="container mx-auto px-4 md:px-6 relative z-10">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-2 inline-block">
-                О <span className="text-blue-700">КОМПАНИИ</span>
-              </h2>
-              <div className="h-1 w-20 bg-blue-700 mx-auto mt-2" />
-              <p className="text-gray-600 max-w-3xl mx-auto mt-4">
-                Комплексный подход к обслуживанию зданий и территорий с
-                гарантией качества
-              </p>
-            </div>
+            <div className="grid grid-cols-1 gap-12">
+              {/* Заголовок и большое изображение */}
+              <div className="relative w-full">
+                <div className="rounded-lg overflow-hidden">
+                  <img
+                    src="https://cdn.poehali.dev/files/3a39ce4c-959f-47f4-b379-1b07ce645f28.jpg"
+                    alt="Техническое обслуживание инженерных систем"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="animate-on-scroll">
-                <h3 className="text-xl font-semibold text-blue-700 mb-4">
-                  ЛИДЕР РЫНКА FACILITY MANAGEMENT
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Компания «Гарант Партнер» успешно работает на рынке
-                  комплексного обслуживания недвижимости более 15 лет. Мы
-                  предоставляем полный спектр услуг по управлению и эксплуатации
-                  зданий и сооружений коммерческой и жилой недвижимости.
-                </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-start gap-2">
-                    <Icon
-                      name="Check"
-                      className="text-green-600 mt-1"
-                      size={18}
-                    />
-                    <span className="text-gray-700">
-                      Современные технологии и оборудование
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <Icon
-                      name="Check"
-                      className="text-green-600 mt-1"
-                      size={18}
-                    />
-                    <span className="text-gray-700">
-                      Опытные и квалифицированные специалисты
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <Icon
-                      name="Check"
-                      className="text-green-600 mt-1"
-                      size={18}
-                    />
-                    <span className="text-gray-700">
-                      Индивидуальный подход к каждому проекту
-                    </span>
+              {/* Основная информация */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Левая колонка */}
+                <div className="lg:col-span-1">
+                  <h2 className="text-3xl font-bold text-blue-700 mb-6">
+                    О КОМПАНИИ
+                  </h2>
+                  <p className="text-gray-700 mb-6">
+                    УК «Гарант-Партнер» - это команда профессионалов, мы
+                    специализируемся на комплексном обслуживании зданий и
+                    территорий:
+                  </p>
+
+                  <ul className="space-y-2 mb-8 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold">•</span>
+                      <span>плановое техническое обслуживание</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold">•</span>
+                      <span>текущий и плановый ремонт</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold">•</span>
+                      <span>комплексные клининговые услуги</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold">•</span>
+                      <span>содержание территории</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold">•</span>
+                      <span>содержание зеленых насаждений</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold">•</span>
+                      <span>благоустройство территории</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold">•</span>
+                      <span>монтаж систем кондиционирования и вентиляции</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold">•</span>
+                      <span>комплексное содержание ледовых арен</span>
+                    </li>
+                  </ul>
+
+                  <p className="text-gray-700 mb-6">
+                    Среди наших Заказчиков - коммерческие и государственные
+                    структуры, которые, выбрав нас в качестве партнера,
+                    избавились от необходимости поиска подрядных организаций по
+                    различным направлениям деятельности.
+                  </p>
+                </div>
+
+                {/* Средняя и правая колонки */}
+                <div className="lg:col-span-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Преимущество 1 */}
+                    <div className="flex flex-col">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="flex-shrink-0">
+                          <img
+                            src="https://cdn.poehali.dev/files/award-icon.svg"
+                            alt="Высокое качество работ"
+                            className="w-16 h-16 text-blue-600"
+                            onError={(e) => {
+                              // Если изображение не загрузилось, показываем запасной вариант
+                              e.currentTarget.src =
+                                "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2'><circle cx='12' cy='8' r='7'/><polyline points='8.21 13.89 7 23 12 20 17 23 15.79 13.88'/></svg>";
+                            }}
+                          />
+                        </div>
+                        <h3 className="text-xl font-bold text-blue-700">
+                          ВЫСОКОЕ КАЧЕСТВО РАБОТ
+                        </h3>
+                      </div>
+                      <p className="text-gray-700">
+                        Наш персонал квалифицирован и имеет опыт практической
+                        работы в офисных, торговых, складских и производственных
+                        зданиях и сооружениях.
+                      </p>
+                    </div>
+
+                    {/* Преимущество 2 */}
+                    <div className="flex flex-col">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="flex-shrink-0">
+                          <img
+                            src="https://cdn.poehali.dev/files/truck-icon.svg"
+                            alt="Современное оборудование"
+                            className="w-16 h-16 text-blue-600"
+                            onError={(e) => {
+                              // Если изображение не загрузилось, показываем запасной вариант
+                              e.currentTarget.src =
+                                "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24' fill='none' stroke='%232563eb' stroke-width='2'><path d='M3 3h14v10H3z'/><path d='M17 13h6v6h-6z'/><path d='M10 17h4'/><path d='M6 17h.01'/><path d='M3 13h14'/><circle cx='20' cy='17' r='1'/><circle cx='17' cy='17' r='1'/></svg>";
+                            }}
+                          />
+                        </div>
+                        <h3 className="text-xl font-bold text-blue-700">
+                          СОВРЕМЕННОЕ ОБОРУДОВАНИЕ
+                        </h3>
+                      </div>
+                      <p className="text-gray-700">
+                        Компания владеет хорошей производственной, технической
+                        базой и складскими помещениями. При выполнении работ
+                        используется оборудование от ведущих производителей.
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <Button className="animate-on-scroll bg-blue-700 hover:bg-blue-800">
-                  Узнать больше
-                </Button>
-              </div>
-              <div className="relative animate-on-scroll">
-                <div className="absolute -inset-4 bg-blue-200/50 rounded-3xl -rotate-3" />
-                <div className="absolute -inset-4 bg-blue-700/20 rounded-3xl rotate-3 translate-x-4" />
-                <img
-                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Офис компании Гарант Партнер"
-                  className="w-full h-[400px] object-cover rounded-xl shadow-xl relative z-10"
-                />
               </div>
             </div>
           </div>
