@@ -462,6 +462,7 @@ const Home = () => {
                         <Icon name="Clock" className="text-blue-400" />
                       </div>
                       <div>
+                        \n{" "}
                         <p className="font-medium text-blue-200 mb-1">
                           Режим работы:
                         </p>
