@@ -197,7 +197,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Раздел Услуги с градиентом */}
+        {/* Раздел Услуги с градиентом и включенной секцией озеленения */}
         <section
           id="services"
           className="py-20 bg-gradient-to-b from-white to-blue-50"
@@ -214,7 +214,8 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Основные услуги */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <ServiceCard
                 icon="Building2"
                 title="Техническое обслуживание зданий"
@@ -252,146 +253,129 @@ const Home = () => {
                 className="animate-on-scroll hover:-translate-y-2 transition-transform duration-300"
               />
             </div>
-          </div>
-        </section>
 
-        {/* Раздел Озеленение */}
-        <section
-          id="greening"
-          className="py-20 bg-green-50 relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path
-                fill="#009432"
-                d="M45.7,-75.2C58.9,-69.2,69.2,-55.7,76.1,-41C83,-26.4,86.5,-10.7,82.6,3.4C78.7,17.4,67.4,29.9,57.3,42.5C47.1,55.1,38.1,67.9,25.9,73.2C13.7,78.5,-1.8,76.3,-16.9,72.4C-32,68.4,-46.8,62.6,-57.2,52.5C-67.6,42.3,-73.6,27.7,-77.7,11.9C-81.8,-3.8,-84,-20.8,-78.2,-34.5C-72.3,-48.2,-58.3,-58.8,-43.9,-64.4C-29.4,-70,-14.7,-70.7,1.1,-72.5C16.9,-74.3,33.9,-77.3,45.7,-75.2Z"
-                transform="translate(100 100)"
-              />
-            </svg>
-          </div>
-          <div className="container mx-auto px-4 md:px-6 relative z-10">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-2 inline-block">
-                ПРОФЕССИОНАЛЬНОЕ{" "}
-                <span className="text-green-600">ОЗЕЛЕНЕНИЕ</span>
-              </h2>
-              <div className="h-1 w-20 bg-green-600 mx-auto mt-2" />
-              <p className="text-gray-600 max-w-3xl mx-auto mt-4">
-                Создание и поддержание зеленых зон для улучшения экологии и
-                эстетики вашего объекта
-              </p>
-            </div>
-
-            <div className="flex flex-col lg:flex-row gap-12">
-              <div className="flex-1 animate-on-scroll">
-                <div className="rounded-xl overflow-hidden mb-6 shadow-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=800&q=80"
-                    alt="Городское озеленение территории"
-                    className="w-full h-[350px] object-cover transform transition-transform hover:scale-105 duration-700"
-                  />
+            {/* Секция Озеленение в составе услуг */}
+            <div className="mt-16 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+              <div className="flex flex-col lg:flex-row gap-12">
+                <div className="flex-1 animate-on-scroll">
+                  <h3 className="text-2xl font-bold text-green-600 mb-6">
+                    ПРОФЕССИОНАЛЬНОЕ ОЗЕЛЕНЕНИЕ
+                  </h3>
+                  <div className="rounded-xl overflow-hidden mb-6 shadow-xl">
+                    <img
+                      src="https://images.unsplash.com/photo-1520302630591-fd1c66edc19d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=800&q=80"
+                      alt="Городское озеленение территории"
+                      className="w-full h-[350px] object-cover transform transition-transform hover:scale-105 duration-700"
+                    />
+                  </div>
+                  <p className="text-gray-700 mb-6">
+                    Компания «Гарант-Партнер» предлагает комплексные услуги по
+                    озеленению и благоустройству территорий вокруг
+                    бизнес-центров, офисных зданий, торговых комплексов и других
+                    объектов недвижимости. Наши специалисты разрабатывают
+                    индивидуальные проекты озеленения с учетом особенностей
+                    территории и пожеланий заказчика.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2">
+                      <Icon
+                        name="Check"
+                        className="text-green-600 mt-1"
+                        size={16}
+                      />
+                      <span>Проектирование ландшафта и озеленения</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon
+                        name="Check"
+                        className="text-green-600 mt-1"
+                        size={16}
+                      />
+                      <span>Подбор и посадка растений</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon
+                        name="Check"
+                        className="text-green-600 mt-1"
+                        size={16}
+                      />
+                      <span>Создание и обслуживание газонов</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon
+                        name="Check"
+                        className="text-green-600 mt-1"
+                        size={16}
+                      />
+                      <span>Сезонное обслуживание растений</span>
+                    </li>
+                  </ul>
                 </div>
-                <p className="text-gray-700 mb-6">
-                  Компания «Гарант-Партнер» предлагает комплексные услуги по
-                  озеленению и благоустройству территорий вокруг бизнес-центров,
-                  офисных зданий, торговых комплексов и других объектов
-                  недвижимости. Наши специалисты разрабатывают индивидуальные
-                  проекты озеленения с учетом особенностей территории и
-                  пожеланий заказчика.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start gap-2">
-                    <Icon
-                      name="Check"
-                      className="text-green-600 mt-1"
-                      size={16}
-                    />
-                    <span>Проектирование ландшафта и озеленения</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Icon
-                      name="Check"
-                      className="text-green-600 mt-1"
-                      size={16}
-                    />
-                    <span>Подбор и посадка растений</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Icon
-                      name="Check"
-                      className="text-green-600 mt-1"
-                      size={16}
-                    />
-                    <span>Создание и обслуживание газонов</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Icon
-                      name="Check"
-                      className="text-green-600 mt-1"
-                      size={16}
-                    />
-                    <span>Сезонное обслуживание растений</span>
-                  </li>
-                </ul>
-              </div>
 
-              <div className="flex-1 flex flex-col gap-6 animate-on-scroll">
-                <div className="rounded-xl bg-white shadow-lg p-6 hover:shadow-xl transition-shadow">
-                  <div className="flex gap-5">
-                    <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
-                      <Icon name="Flower2" className="text-green-600 h-8 w-8" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-green-700 text-lg mb-2">
-                        ЛАНДШАФТНЫЙ ДИЗАЙН
-                      </h3>
-                      <p className="text-gray-700">
-                        Разработка проекта озеленения территории с учетом
-                        особенностей местности, климата и функциональных
-                        требований.
-                      </p>
+                <div className="flex-1 flex flex-col gap-6 animate-on-scroll">
+                  <div className="rounded-xl bg-green-50 shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div className="flex gap-5">
+                      <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
+                        <Icon
+                          name="Flower2"
+                          className="text-green-600 h-8 w-8"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-green-700 text-lg mb-2">
+                          ЛАНДШАФТНЫЙ ДИЗАЙН
+                        </h3>
+                        <p className="text-gray-700">
+                          Разработка проекта озеленения территории с учетом
+                          особенностей местности, климата и функциональных
+                          требований.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="rounded-xl bg-white shadow-lg p-6 hover:shadow-xl transition-shadow">
-                  <div className="flex gap-5">
-                    <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
-                      <Icon name="Trees" className="text-green-600 h-8 w-8" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-green-700 text-lg mb-2">
-                        ПОСАДКА И УХОД ЗА РАСТЕНИЯМИ
-                      </h3>
-                      <p className="text-gray-700">
-                        Подбор, посадка и обслуживание зеленых насаждений:
-                        деревьев, кустарников, многолетних и однолетних
-                        растений.
-                      </p>
+                  <div className="rounded-xl bg-green-50 shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div className="flex gap-5">
+                      <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
+                        <Icon name="Trees" className="text-green-600 h-8 w-8" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-green-700 text-lg mb-2">
+                          ПОСАДКА И УХОД ЗА РАСТЕНИЯМИ
+                        </h3>
+                        <p className="text-gray-700">
+                          Подбор, посадка и обслуживание зеленых насаждений:
+                          деревьев, кустарников, многолетних и однолетних
+                          растений.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="rounded-xl bg-white shadow-lg p-6 hover:shadow-xl transition-shadow">
-                  <div className="flex gap-5">
-                    <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
-                      <Icon name="Sprout" className="text-green-600 h-8 w-8" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-green-700 text-lg mb-2">
-                        УСТРОЙСТВО И УХОД ЗА ГАЗОНАМИ
-                      </h3>
-                      <p className="text-gray-700">
-                        Создание и обслуживание газонов различных типов:
-                        партерных, спортивных, мавританских и универсальных.
-                      </p>
+                  <div className="rounded-xl bg-green-50 shadow-lg p-6 hover:shadow-xl transition-shadow">
+                    <div className="flex gap-5">
+                      <div className="flex-shrink-0 bg-green-100 p-4 rounded-full">
+                        <Icon
+                          name="Sprout"
+                          className="text-green-600 h-8 w-8"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-green-700 text-lg mb-2">
+                          УСТРОЙСТВО И УХОД ЗА ГАЗОНАМИ
+                        </h3>
+                        <p className="text-gray-700">
+                          Создание и обслуживание газонов различных типов:
+                          партерных, спортивных, мавританских и универсальных.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <Button className="bg-green-600 hover:bg-green-700 text-white w-full py-3 mt-2">
-                  Заказать услуги озеленения
-                </Button>
+                  <Button className="bg-green-600 hover:bg-green-700 text-white w-full py-3 mt-2">
+                    Заказать услуги озеленения
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

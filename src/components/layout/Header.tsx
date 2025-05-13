@@ -67,12 +67,6 @@ const Header = () => {
             Услуги
           </a>
           <a
-            href="#greening"
-            className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors"
-          >
-            Озеленение
-          </a>
-          <a
             href="#clients"
             className="text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors"
           >
@@ -133,13 +127,6 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Услуги
-            </a>
-            <a
-              href="#greening"
-              className="text-sm font-medium py-2 text-gray-700 hover:text-blue-700"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Озеленение
             </a>
             <a
               href="#clients"
