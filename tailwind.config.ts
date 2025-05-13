@@ -28,9 +28,20 @@ const config = {
         primary: {
           DEFAULT: "#0e5888",
           foreground: "hsl(var(--primary-foreground))",
+          light: "#2980b9",
+          dark: "#0a3f63",
+          100: "#e6f1f9",
+          200: "#c0dff2",
+          300: "#9acceb",
+          400: "#74b9e4",
+          500: "#4ea7dd",
+          600: "#2980b9",
+          700: "#1f6697",
+          800: "#154c75",
+          900: "#0a3252",
         },
         secondary: {
-          DEFAULT: "#2980b9",
+          DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -53,16 +64,6 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          ring: "hsl(var(--sidebar-ring))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -78,10 +79,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideIn: {
+          '0%': { opacity: '0', transform: 'translateX(-20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fadeIn 0.5s ease-out forwards",
+        "slide-in": "slideIn 0.5s ease-out forwards",
       },
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],

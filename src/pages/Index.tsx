@@ -1,9 +1,37 @@
 
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import ServiceCard from "@/components/ServiceCard";
+import ClientCategory from "@/components/ClientCategory";
+import StatCard from "@/components/StatCard";
 
 const Home = () => {
+  // Функция для анимации элементов при скролле
+  useEffect(() => {
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    });
+
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach(el => observer.observe(el));
+
+    return () => {
+      animateElements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Навигация */}
@@ -36,7 +64,7 @@ const Home = () => {
             <Button variant="outline" size="sm" className="hidden md:flex">
               Обратный звонок
             </Button>
-            <Button size="sm" className="bg-primary">
+            <Button size="sm" className="bg-primary hover:bg-primary-600">
               Связаться с нами
             </Button>
           </div>
@@ -54,7 +82,7 @@ const Home = () => {
           }}
         >
           <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl space-y-4">
+            <div className="max-w-3xl space-y-4 animate-on-scroll">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-4">
                 КОМПЛЕКСНОЕ ОБСЛУЖИВАНИЕ ЗДАНИЙ
               </h1>
@@ -62,7 +90,7 @@ const Home = () => {
                 Профессиональные услуги по эксплуатации и обслуживанию недвижимости любого типа
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Button size="lg" className="bg-primary hover:bg-primary-600">
                   Заказать услугу
                 </Button>
                 <Button size="lg" variant="outline" className="text-white border-white hover:bg-white/20">
@@ -73,11 +101,24 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Статистика */}
+        <section className="py-8 bg-primary text-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+              <StatCard number="450 000" text="обслуживаемых территорий" />
+              <StatCard number="10 000" text="оказанных услуг" />
+              <StatCard number="6+" text="опыт в сфере технического обслуживания и профессионального клининга" />
+              <StatCard number="670" text="клиентов" />
+              <StatCard number="130" text="сотрудников" />
+            </div>
+          </div>
+        </section>
+
         {/* О компании */}
         <section id="about" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row gap-12">
-              <div className="flex-1">
+              <div className="flex-1 animate-on-scroll">
                 <h2 className="text-3xl font-bold text-primary mb-2">О КОМПАНИИ</h2>
                 <div className="w-20 h-1 bg-primary mb-6"></div>
                 <p className="text-gray-700 mb-6">
@@ -123,7 +164,7 @@ const Home = () => {
                   партнера, избавились от необходимости поиска подрядных организаций по различным направлениям деятельности.
                 </p>
               </div>
-              <div className="flex-1 flex flex-col gap-6">
+              <div className="flex-1 flex flex-col gap-6 animate-on-scroll">
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-primary flex items-center gap-2">
@@ -158,34 +199,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Статистика */}
-        <section className="py-12 bg-primary text-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-              <div className="flex flex-col items-center">
-                <p className="text-4xl font-bold mb-2">450 000</p>
-                <p className="text-sm">обслуживаемых территорий</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <p className="text-4xl font-bold mb-2">10 000</p>
-                <p className="text-sm">оказанных услуг</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <p className="text-4xl font-bold mb-2">6+</p>
-                <p className="text-sm">опыт в сфере технического обслуживания и профессионального клининга</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <p className="text-4xl font-bold mb-2">670</p>
-                <p className="text-sm">клиентов</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <p className="text-4xl font-bold mb-2">130</p>
-                <p className="text-sm">сотрудников</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Услуги */}
         <section id="services" className="py-16">
           <div className="container mx-auto px-4 md:px-6">
@@ -193,79 +206,61 @@ const Home = () => {
             <div className="w-20 h-1 bg-primary mx-auto mb-12"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <Card>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Icon name="Wrench" className="text-primary" size={24} />
-                  </div>
-                  <CardTitle>ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    всех инженерных систем здания, которое включает плановое техническое обслуживание, 
-                    планово-предупредительный, текущий и аварийный ремонт
-                  </p>
-                </CardContent>
-              </Card>
+              <ServiceCard 
+                icon="Wrench"
+                title="ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ"
+                description="Всех инженерных систем здания, которое включает плановое техническое обслуживание, планово-предупредительный, текущий и аварийный ремонт"
+                className="animate-on-scroll"
+              />
               
-              <Card>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Icon name="Trash2" className="text-primary" size={24} />
-                  </div>
-                  <CardTitle>УБОРКА ЗДАНИЙ И ПРИЛЕГАЮЩЕЙ ТЕРРИТОРИИ</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Обеспечение заданного стандарта чистоты, проведение санитарно-гигиенических мероприятий.
-                  </p>
-                </CardContent>
-              </Card>
+              <ServiceCard 
+                icon="Trash2"
+                title="УБОРКА ЗДАНИЙ И ПРИЛЕГАЮЩЕЙ ТЕРРИТОРИИ"
+                description="Обеспечение заданного стандарта чистоты, проведение санитарно-гигиенических мероприятий."
+                className="animate-on-scroll"
+              />
               
-              <Card>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Icon name="LineChart" className="text-primary" size={24} />
-                  </div>
-                  <CardTitle>МОНИТОРИНГ ТЕХНИЧЕСКОГО СОСТОЯНИЯ ОБЪЕКТА</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Регулярное проведение плановых и регламентных осмотров инженерных систем и оборудования 
-                    визуально и с использованием средств технической диагностики.
-                  </p>
-                </CardContent>
-              </Card>
+              <ServiceCard 
+                icon="LineChart"
+                title="МОНИТОРИНГ ТЕХНИЧЕСКОГО СОСТОЯНИЯ ОБЪЕКТА"
+                description="Регулярное проведение плановых и регламентных осмотров инженерных систем и оборудования визуально и с использованием средств технической диагностики."
+                className="animate-on-scroll"
+              />
               
-              <Card>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Icon name="Users" className="text-primary" size={24} />
-                  </div>
-                  <CardTitle>ТЕХНИЧЕСКИЙ КОНСАЛТИНГ</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Консультирование по вопросам модернизации старых и интеграции новых инженерных систем.
-                    Представление интересов собственника, арендаторов зданий и помещений перед ресурсоснабжающими организациями.
-                  </p>
-                </CardContent>
-              </Card>
+              <ServiceCard 
+                icon="Users"
+                title="ТЕХНИЧЕСКИЙ КОНСАЛТИНГ"
+                description="Консультирование по вопросам модернизации старых и интеграции новых инженерных систем. Представление интересов собственника, арендаторов зданий и помещений перед ресурсоснабжающими организациями."
+                className="animate-on-scroll"
+              />
               
-              <Card>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Icon name="FileText" className="text-primary" size={24} />
-                  </div>
-                  <CardTitle>НОРМАТИВНЫЕ МЕРОПРИЯТИЯ</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700">
-                    Выполнение требований нормативных актов по эксплуатации, ведение технической документации.
-                  </p>
-                </CardContent>
-              </Card>
+              <ServiceCard 
+                icon="FileText"
+                title="НОРМАТИВНЫЕ МЕРОПРИЯТИЯ"
+                description="Выполнение требований нормативных актов по эксплуатации, ведение технической документации."
+                className="animate-on-scroll"
+              />
             </div>
+          </div>
+        </section>
+
+        {/* CTA-секция */}
+        <section 
+          className="py-16 bg-primary text-white"
+          style={{
+            backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.95), rgba(14, 88, 136, 0.95)), url('https://cdn.poehali.dev/files/ba26b76b-3213-44a9-91b2-1957fbac3826.jpg')",
+            backgroundPosition: "center",
+            backgroundSize: "cover"
+          }}
+        >
+          <div className="container mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-3xl font-bold mb-6 animate-on-scroll">
+              ВАС ИНТЕРЕСУЕТ КОМПЛЕКСНОЕ ОБСЛУЖИВАНИЕ ЗДАНИЙ?<br/>
+              ТОГДА ВАМ К НАМ!
+            </h2>
+            <Button className="bg-white text-primary hover:bg-gray-100 hover:text-primary animate-on-scroll" size="lg">
+              Заказать консультацию
+            </Button>
           </div>
         </section>
 
@@ -283,123 +278,54 @@ const Home = () => {
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
-                <div 
-                  className="h-40 bg-primary/80 flex items-center justify-center text-white text-center p-4"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3')",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                >
-                  <h3 className="font-bold text-xl">БИЗНЕС ЦЕНТРЫ</h3>
-                </div>
-              </div>
+              <ClientCategory 
+                title="БИЗНЕС ЦЕНТРЫ" 
+                imageUrl="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3"
+                className="animate-on-scroll"
+              />
               
-              <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
-                <div 
-                  className="h-40 bg-primary/80 flex items-center justify-center text-white text-center p-4"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url('https://images.unsplash.com/photo-1519999482648-25049ddd37b1?ixlib=rb-4.0.3')",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                >
-                  <h3 className="font-bold text-xl">ТОРГОВЫЕ ЦЕНТРЫ</h3>
-                </div>
-              </div>
+              <ClientCategory 
+                title="ТОРГОВЫЕ ЦЕНТРЫ" 
+                imageUrl="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?ixlib=rb-4.0.3"
+                className="animate-on-scroll"
+              />
               
-              <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
-                <div 
-                  className="h-40 bg-primary/80 flex items-center justify-center text-white text-center p-4"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url('https://images.unsplash.com/photo-1567449303078-57ad995bd17a?ixlib=rb-4.0.3')",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                >
-                  <h3 className="font-bold text-xl">СЕТИ МАГАЗИНОВ</h3>
-                </div>
-              </div>
+              <ClientCategory 
+                title="СЕТИ МАГАЗИНОВ" 
+                imageUrl="https://images.unsplash.com/photo-1567449303078-57ad995bd17a?ixlib=rb-4.0.3"
+                className="animate-on-scroll"
+              />
               
-              <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
-                <div 
-                  className="h-40 bg-primary/80 flex items-center justify-center text-white text-center p-4"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3')",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                >
-                  <h3 className="font-bold text-xl">ОФИСЫ И СКЛАДЫ</h3>
-                </div>
-              </div>
+              <ClientCategory 
+                title="ОФИСЫ И СКЛАДЫ" 
+                imageUrl="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3"
+                className="animate-on-scroll"
+              />
               
-              <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
-                <div 
-                  className="h-40 bg-primary/80 flex items-center justify-center text-white text-center p-4"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url('https://images.unsplash.com/photo-1553855426-252586f72a34?ixlib=rb-4.0.3')",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                >
-                  <h3 className="font-bold text-xl">ГОСУДАРСТВЕННЫЕ СТРУКТУРЫ</h3>
-                </div>
-              </div>
+              <ClientCategory 
+                title="ГОСУДАРСТВЕННЫЕ СТРУКТУРЫ" 
+                imageUrl="https://images.unsplash.com/photo-1553855426-252586f72a34?ixlib=rb-4.0.3"
+                className="animate-on-scroll"
+              />
               
-              <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
-                <div 
-                  className="h-40 bg-primary/80 flex items-center justify-center text-white text-center p-4"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url('https://images.unsplash.com/photo-1602620502036-e52519d58d92?ixlib=rb-4.0.3')",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                >
-                  <h3 className="font-bold text-xl">ПРОИЗВОДСТВО</h3>
-                </div>
-              </div>
+              <ClientCategory 
+                title="ПРОИЗВОДСТВО" 
+                imageUrl="https://images.unsplash.com/photo-1602620502036-e52519d58d92?ixlib=rb-4.0.3"
+                className="animate-on-scroll"
+              />
               
-              <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
-                <div 
-                  className="h-40 bg-primary/80 flex items-center justify-center text-white text-center p-4"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url('https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3')",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                >
-                  <h3 className="font-bold text-xl">ЖИЛЫЕ КОМПЛЕКСЫ</h3>
-                </div>
-              </div>
+              <ClientCategory 
+                title="ЖИЛЫЕ КОМПЛЕКСЫ" 
+                imageUrl="https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-4.0.3"
+                className="animate-on-scroll"
+              />
               
-              <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105">
-                <div 
-                  className="h-40 bg-primary/80 flex items-center justify-center text-white text-center p-4"
-                  style={{
-                    backgroundImage: "linear-gradient(rgba(14, 88, 136, 0.8), rgba(14, 88, 136, 0.8)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3')",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover"
-                  }}
-                >
-                  <h3 className="font-bold text-xl">СПОРТИВНЫЕ КОМПЛЕКСЫ</h3>
-                </div>
-              </div>
+              <ClientCategory 
+                title="СПОРТИВНЫЕ КОМПЛЕКСЫ" 
+                imageUrl="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3"
+                className="animate-on-scroll"
+              />
             </div>
-          </div>
-        </section>
-
-        {/* CTA-секция */}
-        <section className="py-16 bg-primary text-white">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              ВАС ИНТЕРЕСУЕТ КОМПЛЕКСНОЕ ОБСЛУЖИВАНИЕ ЗДАНИЙ?<br/>
-              ТОГДА ВАМ К НАМ!
-            </h2>
-            <Button className="bg-white text-primary hover:bg-gray-100 hover:text-primary" size="lg">
-              Заказать консультацию
-            </Button>
           </div>
         </section>
 
@@ -407,7 +333,7 @@ const Home = () => {
         <section id="contacts" className="py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
+              <div className="animate-on-scroll">
                 <h2 className="text-3xl font-bold text-primary mb-2">СВЯЗАТЬСЯ С НАМИ</h2>
                 <div className="w-20 h-1 bg-primary mb-6"></div>
                 <p className="text-gray-700 mb-6">
@@ -446,7 +372,7 @@ const Home = () => {
                 </div>
               </div>
               
-              <div className="bg-white rounded-lg shadow-lg p-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 animate-on-scroll">
                 <form className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -506,7 +432,7 @@ const Home = () => {
                     />
                   </div>
                   
-                  <Button className="w-full bg-primary">
+                  <Button className="w-full bg-primary hover:bg-primary-600">
                     Отправить запрос
                   </Button>
                 </form>
